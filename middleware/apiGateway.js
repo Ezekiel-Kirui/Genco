@@ -9,7 +9,7 @@ const DEFAULT_DEV_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'https://billing-saas-430b.onrender.com',
-    'https://genco-production.up.railway.app'
+    'https://genco-production.up.railway.app',
 ]
 
 function getAllowedOrigins() {

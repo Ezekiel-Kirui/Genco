@@ -1,4 +1,4 @@
-import { Shield } from 'lucide-react';
+import { Eye, EyeOff, Shield } from 'lucide-react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,6 +12,7 @@ export default function AdminLogin() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const update = (event) => {
     setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
@@ -61,7 +62,24 @@ export default function AdminLogin() {
 
           <div>
             <label className="block text-sm font-medium text-slate-200" htmlFor="password">Password</label>
-            <input id="password" name="password" type="password" className="mt-1 w-full rounded-md border border-slate-600 bg-[#1a1a2e] px-3 py-2 text-sm outline-none focus:border-[#e94560] focus:ring-2 focus:ring-[#e94560]/20" value={form.password} onChange={update} />
+            <div className="relative">
+              <input
+                id="password"
+                name="password"
+                type={showPassword ? 'text' : 'password'}
+                className="mt-1 w-full rounded-md border border-slate-600 bg-[#1a1a2e] px-3 py-2 pr-11 text-sm outline-none focus:border-[#e94560] focus:ring-2 focus:ring-[#e94560]/20"
+                value={form.password}
+                onChange={update}
+              />
+              <button
+                type="button"
+                className="absolute right-2 top-1/2 inline-flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-md text-slate-300 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#e94560]/30"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                onClick={() => setShowPassword((current) => !current)}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
             {errors.password && <p className="mt-1 text-xs font-medium text-red-300">{errors.password}</p>}
           </div>
 

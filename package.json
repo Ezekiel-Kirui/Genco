@@ -11,7 +11,8 @@
     "start": "node server.js",
     "build:frontend": "npm --prefix frontend run build",
     "deploy:database-rules": "node scripts/deployDatabaseRules.js",
-    "reset:tenant-password": "node scripts/resetTenantPassword.js"
+    "reset:tenant-password": "node scripts/resetTenantPassword.js",
+    "reset:admin-password": "node scripts/resetAdminPassword.js"
   },
   "keywords": [],
   "author": "",

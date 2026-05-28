@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const adminApi = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://billing-saas-430b.onrender.com/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://genco-production.up.railway.app/api',
   timeout: 15000,
 });
 

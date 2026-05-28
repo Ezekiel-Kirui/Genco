@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "build:frontend": "npm --prefix frontend run build",
-    "deploy:database-rules": "node scripts/deployDatabaseRules.js"
+    "deploy:database-rules": "node scripts/deployDatabaseRules.js",
+    "reset:tenant-password": "node scripts/resetTenantPassword.js"
   },
   "keywords": [],
   "author": "",

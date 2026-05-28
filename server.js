@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 require('dotenv').config()
 const { logError } = require('./utils/logger')
+const { getConfigStatus, validateEnv } = require('./config/env')
 
 const authRoutes = require('./routes/auth')
 const customerRoutes = require('./routes/customers')
@@ -33,6 +34,8 @@ const {
 
 const app = express()
 const enableCron = process.env.ENABLE_CRON === 'true'
+
+validateEnv()
 
 if (enableCron) {
     require('./cron/expiary')
@@ -65,7 +68,8 @@ app.get('/api/health', (req, res) => {
     res.json({
         ok: true,
         service: 'billing-saas',
-        cronEnabled: enableCron
+        cronEnabled: enableCron,
+        config: getConfigStatus()
     })
 })
 

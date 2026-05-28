@@ -12,7 +12,9 @@
     "build:frontend": "npm --prefix frontend run build",
     "deploy:database-rules": "node scripts/deployDatabaseRules.js",
     "reset:tenant-password": "node scripts/resetTenantPassword.js",
-    "reset:admin-password": "node scripts/resetAdminPassword.js"
+    "reset:admin-password": "node scripts/resetAdminPassword.js",
+    "diagnose:admin-login": "node scripts/diagnoseAdminLogin.js",
+    "generate:secrets": "node scripts/generateSecrets.js"
   },
   "keywords": [],
   "author": "",
